@@ -25,6 +25,7 @@ use Skyline\Compiler\CompilerContext;
 use Skyline\Component\Config\AbstractComponent;
 use Skyline\Component\Config\CSSComponent;
 use Skyline\Component\Config\JavaScriptComponent;
+use Skyline\Component\Config\JavaScriptPostLoadComponent;
 
 $dateJS = __DIR__ . "/dist/skyline-date-picker.min.js";
 $dateCSS = __DIR__ . "/dist/skyline-date-picker.css";
@@ -34,37 +35,43 @@ $timeCSS = __DIR__ . "/dist/skyline-time-picker.css";
 
 
 return [
-    'DatePicker' => [
-		"js" => new JavaScriptComponent(
+	'DatePicker' => [
+		"js" => new JavaScriptPostLoadComponent(
+			...AbstractComponent::makeLocalFileComponentArguments(
 			"/Public/Skyline/date-picker.min.js",
-			'sha384-'.hash_file("sha384", $dateJS),
-			NULL,
-			CompilerContext::getCurrentCompiler()->getRelativeProjectPath($dateJS)
+			$dateJS,
+			"sha384"
+		)
 		),
 		'css' => new CSSComponent(
+			...AbstractComponent::makeLocalFileComponentArguments(
 			"/Public/Skyline/date-picker.min.css",
-			'all',
-			'sha384-'.hash_file("sha384", $dateCSS),
+			$dateCSS,
+			"sha384",
 			NULL,
-			CompilerContext::getCurrentCompiler()->getRelativeProjectPath($dateCSS)
+			'all'
+		)
 		),
 		AbstractComponent::COMP_REQUIREMENTS => [
 			"Skyline"
 		]
-    ],
+	],
 	'TimePicker' => [
-		"js" => new JavaScriptComponent(
+		"js" => new JavaScriptPostLoadComponent(
+			...AbstractComponent::makeLocalFileComponentArguments(
 			"/Public/Skyline/time-picker.min.js",
-			'sha384-'.hash_file("sha384", $timeJS),
-			NULL,
-			CompilerContext::getCurrentCompiler()->getRelativeProjectPath($timeJS)
+			$timeJS,
+			"sha384"
+		)
 		),
 		'css' => new CSSComponent(
+			...AbstractComponent::makeLocalFileComponentArguments(
 			"/Public/Skyline/time-picker.min.css",
-			'all',
-			'sha384-'.hash_file("sha384", $timeCSS),
+			$timeCSS,
+			"sha384",
 			NULL,
-			CompilerContext::getCurrentCompiler()->getRelativeProjectPath($timeCSS)
+			'all'
+		)
 		),
 		AbstractComponent::COMP_REQUIREMENTS => [
 			"Skyline"
