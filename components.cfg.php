@@ -33,6 +33,7 @@ $dateCSS = __DIR__ . "/dist/skyline-date-picker.css";
 $timeJS = __DIR__ . "/dist/skyline-time-picker.min.js";
 $timeCSS = __DIR__ . "/dist/skyline-time-picker.css";
 
+$localDE = __DIR__ . "/dist/i18n/skyline-date-picker-i18n-de.js";
 
 return [
 	'DatePicker' => [
@@ -76,5 +77,14 @@ return [
 		AbstractComponent::COMP_REQUIREMENTS => [
 			"Skyline"
 		]
+	],
+	"DateTimeGerman" => [
+		"js" => new JavaScriptPostLoadComponent(
+			...AbstractComponent::makeLocalFileComponentArguments(
+			"/Public/Skyline/date-time-picker.de.min.js",
+			$localDE,
+			"sha384"
+		)
+		)
 	]
 ];

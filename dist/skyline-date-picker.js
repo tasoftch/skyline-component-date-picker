@@ -996,6 +996,8 @@ SOFTWARE.
             PK.open();
         if(action == 'instance')
             return PK;
+        if(action==='update')
+            PK._handleInputChangeBound(false);
         return this;
     };
 
