@@ -1,0 +1,18 @@
+{
+  "name": "skyline/component-date-picker",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Abplanalp",
+      "email": "info@tasoft.ch"
+    }
+  ],
+  "require" : {
+    "php": "^7.2",
+    "skyline/component": "^0.8"
+  },
+  "require-dev": {
+    "skyline/component-bootstrap": "^4.5",
+    "skyline/compiler": "^0.8"
+  }
+}

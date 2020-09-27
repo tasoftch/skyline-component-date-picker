@@ -1,0 +1,39 @@
+{
+  "name": "skyline-date-picker",
+  "version": "1.0.28",
+  "description": "",
+  "scripts": {
+    "v:patch": "npm version --no-git-tag-version patch",
+    "build:css:date": "node-sass --output-style compressed --precision 6 css/date.scss dist/skyline-date-picker.css",
+    "build:css:time": "node-sass --output-style compressed --precision 6 css/time.scss dist/skyline-time-picker.css",
+    "build:js:date": "minify dist/skyline-date-picker.js > dist/skyline-date-picker.min.js",
+    "build:js:time": "minify dist/skyline-time-picker.js > dist/skyline-time-picker.min.js",
+    "build": "npm run build:css:date;npm run build:css:time;npm run build:js:date;npm run build:js:time"
+  },
+  "keywords": [],
+  "author": "Thomas Abplanalp",
+  "license": "BSD-3-Clause",
+  "babel": {
+    "presets": [
+      "env"
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
+    ]
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.19.1",
+    "node-sass": "^4.8.3",
+    "webpack": "^4",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "minify": "^6.0.0",
+    "underscore": "^1.8.3",
+    "underscore.string": "^3.3.4"
+  }
+}
