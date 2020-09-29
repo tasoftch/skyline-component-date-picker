@@ -79,16 +79,12 @@ return [
 		]
 	],
 	"DateTimeGerman" => [
-		"js" => new JavaScriptPostLoadComponent(
+		"js" => new JavaScriptComponent(
 			...AbstractComponent::makeLocalFileComponentArguments(
 			"/Public/Skyline/date-time-picker.de.min.js",
 			$localDE,
 			"sha384"
 		)
-		),
-		AbstractComponent::COMP_REQUIREMENTS => [
-			"TimePicker",
-			"DatePicker"
-		]
+		)
 	]
 ];
