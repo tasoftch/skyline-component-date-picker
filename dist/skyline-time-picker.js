@@ -47,7 +47,7 @@ SOFTWARE.
         this.id = Skyline.guid();
         this.el = el;
         this.$el = $(el);
-        this.options = $.extend(window.Skyline.TimePicker._defaults, options);
+        this.options = $.extend({}, window.Skyline.TimePicker._defaults, options);
 
         this.$modalEl = $(window.Skyline.TimePicker._template);
         this.modalEl = this.$modalEl[0];
@@ -736,9 +736,9 @@ SOFTWARE.
         });
 
         var PK = this[0].Sky_Timepicker;
-        if(action == 'open')
+        if(action === 'open')
             PK.open();
-        if(action == 'instance')
+        if(action === 'instance')
             return PK;
         if(action==='update')
             PK._updateTimeFromInput();

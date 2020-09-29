@@ -49,7 +49,7 @@ SOFTWARE.
 
         this.el = el;
         this.$el = $(el);
-        this.options = $.extend(window.Skyline.DatePicker._defaults, options);
+        this.options = $.extend({}, window.Skyline.DatePicker._defaults, options);
         if (!!options && options.hasOwnProperty('i18n') && typeof options.i18n === 'object') {
             this.options.i18n = $.extend({}, window.Skyline.DatePicker.defaults.i18n, options.i18n);
         }
@@ -204,7 +204,8 @@ SOFTWARE.
                     this.setDate(date);
                     if(this.options.autoUpdate)
                         this.setInputValue();
-                    else if(this.options.mirror && this.options.mirrorFormat) {
+
+                    if(this.options.mirror && this.options.mirrorFormat) {
                         $(this.options.mirror).val( this.formatDate( date, this.options.mirrorFormat ) );
                     }
                 }

@@ -20,50 +20,52 @@
  * SOFTWARE.
  */
 (function() {
-    if(window.Skyline && Skyline.DatePicker) {
-        window.Skyline.DatePicker._defaults.i18n = {
-            cancel: 'Abbrechen',
-            clear: 'Löschen',
-            done: "OK",
-            months: [
-                'Januar',
-                'Februar',
-                'März',
-                'April',
-                'Mai',
-                'Juni',
-                'Juli',
-                'August',
-                'September',
-                'Oktober',
-                'November',
-                'Dezember'
-            ],
-            monthsShort: [
-                'Jan',
-                'Feb',
-                'Mär',
-                'Apr',
-                'Mai',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Okt',
-                'Nov',
-                'Dez'
-            ],
-            weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
-            weekdaysShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
-            weekdaysAbbrev: ['S', 'M', 'D', 'M', 'D', 'F', 'S']
-        };
-    }
-
-    if(window.Skyline && window.Skyline.TimePicker) {
-        window.Skyline.TimePicker._defaults.i18n = {
-            cancel: 'Abbrechen',
-            clear: 'Löschen',
-            done: "OK",
+    window.setTimeout(function() {
+        if(window.Skyline && Skyline.DatePicker) {
+            window.Skyline.DatePicker._defaults.i18n = {
+                cancel: 'Abbrechen',
+                clear: 'Löschen',
+                done: "OK",
+                months: [
+                    'Januar',
+                    'Februar',
+                    'März',
+                    'April',
+                    'Mai',
+                    'Juni',
+                    'Juli',
+                    'August',
+                    'September',
+                    'Oktober',
+                    'November',
+                    'Dezember'
+                ],
+                monthsShort: [
+                    'Jan',
+                    'Feb',
+                    'Mär',
+                    'Apr',
+                    'Mai',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Okt',
+                    'Nov',
+                    'Dez'
+                ],
+                weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                weekdaysShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                weekdaysAbbrev: ['S', 'M', 'D', 'M', 'D', 'F', 'S']
+            };
         }
-    }
+
+        if(window.Skyline && window.Skyline.TimePicker) {
+            window.Skyline.TimePicker._defaults.i18n = {
+                cancel: 'Abbrechen',
+                clear: 'Löschen',
+                done: "OK",
+            }
+        }
+    }, 50);
 })();
