@@ -9,7 +9,7 @@
   ],
   "require" : {
     "php": "^7.2",
-    "skyline/component": "^0.8"
+    "skyline/component-skyline": "^0.8"
   },
   "require-dev": {
     "skyline/component-bootstrap": "^4.5",
