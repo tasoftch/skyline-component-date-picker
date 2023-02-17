@@ -24,7 +24,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.19.1",
-    "node-sass": "^4.8.3",
+    "node-sass": "^8",
     "webpack": "^4",
     "webpack-cli": "^3.3.12"
   },
