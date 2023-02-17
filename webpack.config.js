@@ -1,5 +1,4 @@
-<?php
-/**
+/*
  * Copyright (c) 2019 TASoft Applications, Th. Abplanalp <info@tasoft.ch>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,48 +20,25 @@
  * SOFTWARE.
  */
 
-use Skyline\Component\Config\AbstractComponent;
-use Skyline\Component\Config\CSSComponent;
-use Skyline\Component\Config\JavaScriptComponent;
-use Skyline\Component\Config\JavaScriptPostLoadComponent;
+const pkg = require('./package.json');
 
-$dateJS = __DIR__ . "/dist/skyline-component-date-picker.min.js";
-$dateCSS = __DIR__ . "/dist/skyline-component-date-picker.min.css";
+const name = pkg.name;
+module.exports = (env = {}) => {
+    return {
+        mode: env.development ? 'development' : 'production',
 
-$localDE = __DIR__ . "/dist/i18n/skyline-component-date-picker-i18n-de.js";
-
-return [
-    'Index' => [
-		"js" => new JavaScriptPostLoadComponent(
-			...AbstractComponent::makeLocalFileComponentArguments(
-			"/Public/Skyline/date-picker.min.js",
-			$dateJS,
-			"sha384"
-			)
-		),
-		'css' => new CSSComponent(
-			...AbstractComponent::makeLocalFileComponentArguments(
-			"/Public/Skyline/date-picker.min.css",
-				$dateCSS,
-				"sha384",
-				NULL,
-				'all'
-			)
-		),
-		AbstractComponent::COMP_REQUIREMENTS => [
-			"Skyline"
-		]
-    ],
-	"DateTimeGerman" => [
-		"js" => new JavaScriptComponent(
-			...AbstractComponent::makeLocalFileComponentArguments(
-				"/Public/Skyline/date-picker.de.min.js",
-				$localDE,
-				"sha384"
-			)
-		),
-		AbstractComponent::COMP_REQUIREMENTS => [
-			"Index"
-		]
-	]
-];
+        entry: './src',
+        output: {
+            filename: `./${name}.min.js`,
+            library: name,
+            libraryTarget: 'umd'
+        },
+        module: {
+            rules: [{
+                test: /\.js$/,
+                loader: 'babel-loader',
+                include: /src/,
+            }],
+        }
+    };
+};

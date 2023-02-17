@@ -1,14 +1,11 @@
 {
-  "name": "skyline-date-picker",
+  "name": "skyline-component-date-picker",
   "version": "1.0.28",
   "description": "",
   "scripts": {
     "v:patch": "npm version --no-git-tag-version patch",
-    "build:css:date": "node-sass --output-style compressed --precision 6 css/date.scss dist/skyline-date-picker.css",
-    "build:css:time": "node-sass --output-style compressed --precision 6 css/time.scss dist/skyline-time-picker.css",
-    "build:js:date": "minify dist/skyline-date-picker.js > dist/skyline-date-picker.min.js",
-    "build:js:time": "minify dist/skyline-time-picker.js > dist/skyline-time-picker.min.js",
-    "build": "npm run build:css:date;npm run build:css:time;npm run build:js:date;npm run build:js:time"
+    "build:css": "node-sass --output-style compressed --precision 6 css/main.scss dist/skyline-component-date-picker.min.css",
+    "build": "npm run build:css;webpack --env.production"
   },
   "keywords": [],
   "author": "Thomas Abplanalp",
